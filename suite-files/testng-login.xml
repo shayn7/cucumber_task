@@ -1,0 +1,7 @@
+<suite name="LoginSuite">
+    <test name="LoginTests">
+        <classes>
+            <class name="dev.naamad.runners.LoginTestRunner"/>
+        </classes>
+    </test>
+</suite>

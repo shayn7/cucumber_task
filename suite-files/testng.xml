@@ -1,0 +1,7 @@
+<suite name="DemoBlazeSuite">
+    <test name="DemoBlazeTests">
+        <classes>
+            <class name="dev.naamad.runners.TestRunner"/>
+        </classes>
+    </test>
+</suite>
