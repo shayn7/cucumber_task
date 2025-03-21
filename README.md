@@ -5,7 +5,7 @@ This project is sample a UI automation project for testing demoblaze.com
 
 
 Requirements
-Make sure you have JDK17, maven, and allure installed in your system
+Make sure you have JDK17 and maven installed in your system
 
 Running the project 
 1. clone the project
