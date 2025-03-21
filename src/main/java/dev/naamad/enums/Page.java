@@ -1,8 +1,6 @@
 package dev.naamad.enums;
 
-import dev.naamad.pages.BasePage;
-import dev.naamad.pages.HomePage;
-import dev.naamad.pages.LoginPage;
+import dev.naamad.pages.*;
 import dev.naamad.steps.BaseSteps;
 
 public enum Page {
@@ -13,6 +11,27 @@ public enum Page {
             return new HomePage(baseSteps);
         }
     },
+
+    CART_PAGE(){
+        @Override
+        public BasePage getPage(BaseSteps baseSteps) {
+            return new CartPage(baseSteps);
+        }
+    },
+    SIGNUP_PAGE(){
+        @Override
+        public BasePage getPage(BaseSteps baseSteps) {
+            return new SignupPage(baseSteps);
+        }
+    },
+
+    PRODUCT_PAGE(){
+        @Override
+        public BasePage getPage(BaseSteps baseSteps) {
+            return new ProductPage(baseSteps);
+        }
+    },
+
     LOGIN_PAGE(){
         @Override
         public BasePage getPage(BaseSteps baseSteps) {

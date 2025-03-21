@@ -1,0 +1,7 @@
+<suite name="CartSuite">
+    <test name="CartTests">
+        <classes>
+            <class name="dev.naamad.runners.CartTestRunner"/>
+        </classes>
+    </test>
+</suite>

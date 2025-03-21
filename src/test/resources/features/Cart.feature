@@ -1,3 +1,4 @@
+@CartTest
 Feature: Cart Functionality
 
   Scenario: Add item to cart and proceed to checkout

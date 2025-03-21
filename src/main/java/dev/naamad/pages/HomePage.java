@@ -1,6 +1,7 @@
 package dev.naamad.pages;
 
 import dev.naamad.steps.BaseSteps;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,6 +13,11 @@ public class HomePage extends BasePage{
 
     public HomePage(BaseSteps steps) {
         super(steps);
+    }
+
+    public void clickOnItem(String item){
+        String xpath = "//a[contains(text(),'" + item + "') and @class='hrefch']";
+        steps.findElementBy(By.xpath(xpath)).click();
     }
 
     public void clickOnLoginButton(){

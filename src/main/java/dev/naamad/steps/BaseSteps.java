@@ -4,14 +4,12 @@ import dev.naamad.enums.Environment;
 import dev.naamad.enums.Page;
 import dev.naamad.factories.WebDriverFactory;
 import dev.naamad.pages.BasePage;
-import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import io.qameta.allure.Attachment;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
@@ -52,7 +50,6 @@ public abstract class BaseSteps {
         return (T) expectedPage;
     }
 
-    @Step("Navigating to URL: {0}")
     public void navigateToUrl(String url) {
         driver.get(url);
         logToConsoleAndReporter("Navigated to URL: " + url);
@@ -70,7 +67,6 @@ public abstract class BaseSteps {
         return isElementDisplayed(element) ? element.getText() : "";
     }
 
-    @Step("Checking if element is displayed: {0}")
     public boolean isElementDisplayed(WebElement element) {
         try {
             new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -81,7 +77,6 @@ public abstract class BaseSteps {
         }
     }
 
-    @Step("Clicking on element: {0}")
     public void clickOnElement(WebElement element) {
         if (isElementDisplayed(element)) {
             element.click();
@@ -120,10 +115,21 @@ public abstract class BaseSteps {
         saveTextLog(message);
     }
 
-    @Attachment(value = "{0}", type = "text/plain")
+    public void acceptAlertIfPresent() {
+            try {
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            } catch (Exception e) {
+                System.out.println("No alert is present.");
+            }
+        }
+
+
     private String saveTextLog(String text) {
         return text;
     }
 
     protected abstract MutableCapabilities initCapabilities();
+
+
 }

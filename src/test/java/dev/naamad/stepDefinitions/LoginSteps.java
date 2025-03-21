@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 import dev.naamad.pages.LoginPage;
 import dev.naamad.steps.BaseSteps;
-
 import java.net.MalformedURLException;
-
 import static dev.naamad.enums.Page.HOME_PAGE;
 import static dev.naamad.enums.Page.LOGIN_PAGE;
+
 
 public class LoginSteps {
     private final BaseSteps baseSteps;
@@ -40,11 +39,12 @@ public class LoginSteps {
     @When("I enter valid credentials")
     public void i_enter_valid_credentials() {
         loginPage = baseSteps.getExpectedPage();
-        loginPage.login("shay", "naamad");
+        loginPage.login("a", "a");
     }
 
-    @Then("I should see the home page")
-    public void i_should_see_the_home_page() {
-        Assert.assertTrue(baseSteps.getDriver().getCurrentUrl().contains("index.html"), "Home page not loaded");
+    @Then("I should see welcome text")
+    public void i_should_see_welcome_text() {
+        loginPage.isWelcomeTextDisplayed();
+        Assert.assertTrue(loginPage.isWelcomeTextDisplayed(), "welcome text does not displayed");
     }
 }
